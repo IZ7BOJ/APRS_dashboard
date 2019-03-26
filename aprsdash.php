@@ -88,7 +88,7 @@ function secondsToTime($seconds) {
 	</TABLE>
 <br><br>
 
-<iframe src="https://www.aprsdirect.com/sidlist/1140214,1253491,1286527,1312224,1639742,1667435,82449,840298,1641450/time/60" width="800" height="400">Alternative text for browsers that do not understand IFrames.</iframe>
+<iframe src="https://www.aprsdirect.com/snamelist/<?php echo $stationsquery ?>/time/60"width="800" height="400">Alternative text for browsers that do not understand IFrames.</iframe>
 
 <hr>
 APRS Vitality Dashboard V0.1 Beta by IZ7BOJ Alfredo<br>
