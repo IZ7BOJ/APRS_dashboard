@@ -26,7 +26,7 @@ function secondsToTime($seconds) {
 }
 
 ?>
-<html>
+<html lang="en">
 <body bgcolor="#606060">
 <br><br>
 <br><br>
@@ -41,10 +41,10 @@ function secondsToTime($seconds) {
 	?>
 	</TH></TR>
 	<TR>
-		<TD BGCOLOR= "silver" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"><B><I> Digi/I-gate Call </B></I></FONT> </TD>
-		<TD BGCOLOR= "silver" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"><B><I> Time since Last Heard</B></I></FONT> </TD>
-		<TD BGCOLOR= "silver" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"><B><I> Status</B></I></FONT> </TD>
-		<TD BGCOLOR= "silver" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"><B><I> Source</B></I></FONT> </TD>
+		<TD BGCOLOR= "silver" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"><B><I> Digi/I-gate Call </I></B></FONT> </TD>
+		<TD BGCOLOR= "silver" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"><B><I> Time since Last Heard</I></B></FONT> </TD>
+		<TD BGCOLOR= "silver" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"><B><I> Status</I></B></FONT> </TD>
+		<TD BGCOLOR= "silver" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"><B><I> Source</I></B></FONT> </TD>
 	</TR>
 <?php
 	$json_url = "https://api.aprs.fi/api/get?name=".$stationsquery."&what=loc&apikey=".$apikey."&format=json";
@@ -70,7 +70,7 @@ function secondsToTime($seconds) {
 		else{
 		echo "DEAD!";
 		}
-		?></B></I></FONT> </TD>
+		?></I></B></FONT> </TD>
 		<TD BGCOLOR= "white" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"><B><I> <?php
                 if (strpos($station['path'], 'qAC') !== false) {
 		echo "TCP-IP";
@@ -78,7 +78,7 @@ function secondsToTime($seconds) {
 		else{
                 echo "RF";
                 }
-		?></B></I></FONT> </TD>
+		?></I></B></FONT> </TD>
         </TR>
 
 <?php
