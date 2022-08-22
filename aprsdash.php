@@ -93,7 +93,7 @@ $i=0;
 	</TABLE>
 <br><br>
 
-<iframe src="https://www.aprs-map.info/snamelist/<?php echo $stationsquery ?>/time/60"width="800" height="400">Alternative text for browsers that do not understand IFrames.</iframe>
+<iframe src="https://aprs-map.info/?snamelist=<?php echo $stationsquery ?>"width="800" height="400">Alternative text for browsers that do not understand IFrames.</iframe>
 
 <hr>
 APRS Vitality Dashboard V0.1 Beta by IZ7BOJ Alfredo<br>
