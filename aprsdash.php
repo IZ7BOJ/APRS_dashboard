@@ -66,7 +66,7 @@ $i=0;
 
 	for ($n=0; $n<ceil(count($stations_arr)/20);$n++) {
 		$stations=implode(",",array_slice($stations_arr,20*$n,20*(1+$n)));
-		$json_url = "https://api.aprs.fi/api/get?name=".$stations."&what=loc&apikey=".$apikey."&format=json";
+		$json_url = "https://api.aprs.fi/api/get?name=".$stationsquery."&what=loc&apikey=".$apikey."&format=json";
 		//$json = file_get_contents( $json_url, 0, null, null );
 		$json = file_get_contents( $json_url, false, stream_context_create($arrContextOptions));
 		$json_output = json_decode( $json, true);
