@@ -28,6 +28,12 @@ function secondsToTime($seconds) {
 
 $sysop_arr = explode (",", $sysop);
 $stations_arr = explode (",", $stationsquery);
+if (count($stations_arr)!==count($sysop_arr)){
+	echo '<font color="red" size="6"><b>Error! Number of stations differ from number of sysops declared in config.php!</b></font>';
+        echo '<br><br>Please check carefully config.php';
+        echo '<br><br><b>Pointless to continue.</b>';
+        die();
+        }
 $i=0;
 
 ?>
@@ -48,7 +54,7 @@ $i=0;
 		<TD BGCOLOR= "silver" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"><B><I>SYSOP</B></I></FONT> </TD>
 	</TR>
 	<?php
-	//agiunta 19/10/2021 perchè andava in errore openssl. https://stackoverflow.com/questions/26148701/file-get-contents-ssl-operation-failed-with-code-1-failed-to-enable-crypto
+	//added on 19/10/2021 to fix openssl error. https://stackoverflow.com/questions/26148701/file-get-contents-ssl-operation-failed-with-code-1-failed-to-enable-crypto
 	$arrContextOptions=array(
 	    "ssl"=>array(
         	"verify_peer"=>false,
@@ -66,6 +72,9 @@ $i=0;
 		$json_output = json_decode( $json, true);
 		$station_array = $json_output[ 'entries' ];
 		foreach ( $station_array as $station ) {
+			if (strtoupper($stations_arr[$i])!==$station['name']) {
+				$i++; //station not present in aprs.fi database. Jump to next syso array element to avoid misalignment
+			}
 			($nowtime-$station['lasttime']>$timeout) ? $color="red" : $color="green";
 	?>
 
@@ -79,7 +88,7 @@ $i=0;
 		<?php
                 echo (strpos($station['path'], 'qAC') !== false) ? "TCP-IP" : "RF";
 		?></B></I></FONT> </TD>
-		<TD BGCOLOR= "white" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"> <?php echo $sysop_arr[$i] ?></FONT> </TD>
+		<TD BGCOLOR= "white" ALIGN=CENTER> <FONT FACE="verdana" SIZE="2" COLOR="black"> <?php echo strtoupper($sysop_arr[$i]) ?></FONT> </TD>
 		</B></I></FONT> </TD>
 	</TR>
 		<?php
